@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/cdevents/sdk-go/pkg/api"
+	"github.com/afrittoli/cdevents-sdk-go/pkg/api"
 	"github.com/invopop/jsonschema"
 )
 
