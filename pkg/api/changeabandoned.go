@@ -143,6 +143,11 @@ func (e ChangeAbandonedEvent) GetSchema() string {
 	return changeAbandonedSchemaFile
 }
 
+// Subject field setters
+func (e *ChangeAbandonedEvent) SetSubjectRepository(repository Reference) {
+	e.Subject.Content.Repository = repository
+}
+
 func NewChangeAbandonedEvent() (*ChangeAbandonedEvent, error) {
 	e := &ChangeAbandonedEvent{
 		Context: Context{
