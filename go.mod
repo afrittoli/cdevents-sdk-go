@@ -1,4 +1,4 @@
-module github.com/cdevents/sdk-go
+module github.com/afrittoli/cdevents-sdk-go
 
 go 1.18
 
