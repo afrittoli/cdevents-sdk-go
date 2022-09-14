@@ -28,7 +28,12 @@ const (
 	artifactPackagedSchemaFile string      = "artifactpackaged"
 )
 
-type ArtifactPackagedSubjectContent struct{}
+type ArtifactPackagedSubjectContent struct {
+
+	// Change is the last change included in the artifact
+	// This assumes a simplified model of a 1:1 repo <-> artifact relation
+	LastChange Reference `json:"lastChange"`
+}
 
 type ArtifactPackagedSubject struct {
 	SubjectBase
@@ -137,6 +142,12 @@ func (e *ArtifactPackagedEvent) SetCustomData(contentType string, data interface
 
 func (e ArtifactPackagedEvent) GetSchema() string {
 	return artifactPackagedSchemaFile
+}
+
+// Set subject custom fields
+
+func (e *ArtifactPackagedEvent) SetSubjectLastChange(lastChange Reference) {
+	e.Subject.Content.LastChange = lastChange
 }
 
 func NewArtifactPackagedEvent() (*ArtifactPackagedEvent, error) {
